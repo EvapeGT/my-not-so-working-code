@@ -1,0 +1,91 @@
+import java.util.Scanner;
+// this is my main code which is what i use to test my class
+public class MainProgram {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Statistics statistics = new Statistics();
+        statistics.addNumber(3);
+        statistics.addNumber(5);
+        statistics.addNumber(1);
+        statistics.addNumber(2);
+        System.out.println("Count: " + statistics.getCount());
+        System.out.println("Sum: " + statistics.sum());
+        System.out.println("Average: " + statistics.average());
+}}
+//NOW HERE IS MY STATISTICS CODE THAT DOESNT WORK PROPERLY IN SUM METHOD 
+public class Statistics {
+
+    private int num = 0;
+    private int count = 0;
+    private int sum =0;
+    private double ave;
+    private int i = 0;
+
+    public Statistics() {
+
+    }
+
+    public void addNumber(int number) {
+        num = number;
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public int sum() {
+      while( i < count){
+          sum += num;
+          i++;
+      }
+        return sum;
+    }
+
+    public double average() {
+        this.ave = (double)this.sum / this.count;
+        return  ave;
+    }
+}
+//now this code prints out this:
+//Count: 4
+//Sum: 10
+//Average: 2.5
+
+//NOW HERE IS THE REVISED CODE THAT I FIXED MYSELF BUT IDK HOW I DID IT ,IT JUST SOMEHOW WORKED ,BUT I WANNA UNDERSTAND WHY I MESS UP IN THE FIRST ON AND WHY THIS WORKS
+
+public class Statistics {
+
+    private int num = 0;
+    private int count = 0;
+    private int sum = 0;
+    private double ave;
+    private int i = 0;
+
+    public Statistics() {
+
+    }
+
+    public void addNumber(int number) {
+        sum += number;
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public int sum() {
+        return sum;
+    }
+
+    public double average() {
+        this.ave = (double) this.sum / this.count;
+        return ave;
+    }
+}
+//now this code prints out this:
+//Count: 4
+//Sum: 11
+//Average:2.75
